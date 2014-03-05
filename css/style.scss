@@ -1,0 +1,405 @@
+$black: #000;
+$white: #FFF;
+$grey: #f7f7f7;
+$darkgrey: #5e5e5e;
+$red: #d35136;
+$green: #27b599;
+$blue: #088ecc;
+$darkblue: #11171c;
+
+$padding: 10px;
+$margin: 10px;
+$main-width: 1000px;
+
+$font-size: 14px;
+$font-family: 'Lato', sans-serif;
+$line-height: 1.4;
+
+$break-four: 1050px;
+$break-three: 760px;
+$break-two: 520px;
+$break-one: 360px;
+
+@import url('http://fonts.googleapis.com/css?family=Lato:300,400,700');
+@import url('normalize.css');
+
+//Utilities
+.group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+//Main styles
+* {
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -ms-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+html, body, .wrap {
+    min-height: 100%;
+}
+
+body {
+    color: $grey;
+    font-size: $font-size;
+    font-family: $font-family;
+    line-height: $line-height;
+    background: $darkblue;
+}
+
+
+.sidebar {
+    width: 100%;
+    height: 100%;
+
+    @media screen and (min-width: $break-three) {
+        float: left;
+        width: 20%;
+    }
+
+
+    .my-info {
+        text-align: center;
+        padding: $padding*3 0;
+        border-bottom: 1px solid $darkgrey;
+
+        .portfolio-image {
+            border-radius: 50%;
+        }
+
+        h1, h2 {
+            font-weight: normal;
+        }
+
+        h1 {
+            font-size: 120%;
+        }
+
+        h2 {
+            font-size: 100%;
+        }
+
+        .social {
+            width: 120px;
+            margin: 0 auto;
+
+            a {
+                float: left;
+                width: 25px;
+                height: 25px;
+                margin: 0 $margin/5;
+                background: url(../images/social-sprite.png) no-repeat;
+                text-indent: -9999px;
+
+                @media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-device-pixel-ratio: 2) {
+                        background: url(../images/social-sprite@2x.png) no-repeat;
+                        background-size: 101px 51px;
+                }
+
+                &.dribble {
+                    background-position: 0px 0px;
+
+                    &:hover {
+                        background-position: 0px -25px;
+                    }
+
+                }
+
+                &.twitter {
+                    background-position: -25px 0px;
+
+                    &:hover {
+                        background-position: -25px -25px;
+                    }
+                }
+
+                &.facebook {
+                    background-position: -50px 0px;
+
+                    &:hover {
+                        background-position: -50px -25px;
+                    }
+                }
+
+                &.googleplus {
+                    background-position: -75px 0px;
+
+                    &:hover {
+                        background-position: -75px -25px;
+                    }
+                }
+
+            }
+        }
+
+    }
+
+    .menus {
+        text-align: center;
+
+        @media screen and (min-width: $break-three) {
+            padding: $padding*2 $padding*3;
+        }
+
+        h3 {
+            text-transform: uppercase;
+            font-size: 120%;
+            font-weight: normal;
+            padding-left: $padding*2.5;
+            cursor: pointer;
+            width: 20%;
+            margin: $margin*2 $margin*11 $margin;
+
+            @media screen and (min-width: $break-one) {
+                margin: $margin*2 auto $margin*2;
+            }
+
+            @media screen and (min-width: $break-three) {
+                margin: $margin*2 0 $margin 0;
+            }
+
+            &:before {
+                content: "";
+                position: absolute;
+                top: 0px;
+                left: 0px;
+                height: 18px;
+                display: block;
+                background: url(../images/nav-sprite.png) no-repeat;
+
+                @media screen and (-webkit-min-device-pixel-ratio: 2), screen and (min-device-pixel-ratio: 2) {
+                        background: url(../images/nav-sprite@2x.png) no-repeat;
+                        background-size: 49px 18px;
+                }
+            }
+
+            &.work {
+                color: $red;
+
+                &:before {
+                    width: 15px;
+                    background-position: 0px 0px;
+                }
+            }
+
+            &.about {
+                color: $green;
+
+                &:before {
+                    width: 17px;
+                    background-position: -15px 0px;
+                }
+            }
+
+            &.contact {
+                color: $blue;
+
+                &:before {
+                    width: 17px;
+                    background-position: -32px 0px;
+                }
+            }
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            display: none;
+            margin: 0 $margin*13.5 $margin;
+            text-align: left;
+
+            @media screen and (min-width: $break-three) {
+                margin: 0 0 0 $margin*2.5;
+                display: block;
+                width: auto;
+            }
+
+            &.open {
+                display: inline-block;
+                margin: 0 auto $margin $margin*6;
+
+                @media screen and (min-width: $break-three) {
+                    margin: 0 0 0 $margin*2.5;
+                    display: block;
+                    width: auto;
+                }
+            }
+
+            li {
+                a {
+                    color: $darkgrey;
+                    text-decoration: none;
+                    -webkit-transition: color 0.4s ease;
+                    -moz-transition: color 0.4s ease;
+                    -o-transition: color 0.4s ease;
+                    -ms-transition: color 0.4s ease;
+                    transition: color 0.4s ease;
+
+                    &:hover, &.current-menu-item {
+                        color: $white;
+                        -webkit-transition: color 0.4s ease;
+                        -moz-transition: color 0.4s ease;
+                        -o-transition: color 0.4s ease;
+                        -ms-transition: color 0.4s ease;
+                        transition: color 0.4s ease;
+                    }
+                }
+            }
+        }
+
+    }
+
+}
+
+.content {
+    width: 100%;
+    min-height: 100%;
+    background: $white;
+
+    @media screen and (min-width: $break-three) {
+        float: left;
+        width: 80%;
+    }
+
+    .portfolio-item {
+        background: $grey;
+
+        &:before {
+            content: "";
+            position: absolute;
+            width: 3px;
+            background: darken($grey, 5%);
+            top: 0px;
+            left: 17px;
+            bottom: 0px;
+        }
+
+        &.first {
+            &:before {
+                top: 30px;
+            }
+        }
+
+        .portfolio-info {
+            min-height: 100%;
+            color: $darkgrey;
+            padding: $padding*2 $padding*2 $padding*2 $padding*4;
+            -webkit-box-sizing: border-box;
+            -moz-box-sizing: border-box;
+            -ms-box-sizing: border-box;
+            box-sizing: border-box;
+
+            @media screen and (min-width: $break-three) {
+                float: left;
+                width: 30%;
+            }
+
+            .date {
+                font-size: 110%;
+                color: $black;
+                margin-bottom: $margin;
+
+                &:before {
+                    content: "";
+                    position: absolute;
+                    width: 11px;
+                    height: 11px;
+                    border-radius: 50%;
+                    border: 2px solid $grey;
+                    background: $red;
+                    left: -29px;
+                    top: 3px;
+                }
+            }
+
+            .meta {
+                color: $black;
+                margin-top: $margin;
+
+                p {
+                    margin: 0;
+                }
+            }
+
+        }
+
+        .portfolio-image {
+            padding: $padding*2;
+            background: $white;
+            border-left: 1px solid darken($grey, 10%);
+            text-align: center;
+
+            @media screen and (min-width: $break-three) {
+                float: left;
+                width: 70%;
+            }
+
+            img {
+                width: 100%;
+                max-width: 610px;
+                height: auto;
+            }
+
+            div.loading {
+                img {
+                    width: auto;
+                    height: auto;
+                }
+            }
+        }
+
+    }
+
+    div.loading {
+        color: darken($grey, 20%);
+        position: absolute;
+        width: 100px;
+        bottom: 15px;
+        left: 50%;
+        margin-left: -50px;
+
+        img {
+            vertical-align: middle;
+
+            &.rotate {
+                -webkit-animation-name: rotate;
+                -ms-animation-name: rotate;
+                animation-name: rotate;
+                -webkit-animation-duration: 1s;
+                animation-duration: 1s;
+                -webkit-animation-iteration-count: infinite;
+                -ms-animation-iteration-count: infinite;
+                animation-iteration-count: infinite;
+                -webkit-animation-timing-function: linear;
+                -ms-animation-timing-function: linear;
+                animation-timing-function: linear;
+            }
+
+
+        }
+    }
+
+}
+
+@-webkit-keyframes rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+        transform: rotate(360deg);
+        -webkit-transform-origin: center center;
+        transform-origin: center center;
+    }
+}
+
+@keyframes rotate {
+    100% {
+        -webkit-transform: rotate(360deg);
+        -ms-transform: rotate(360deg);
+        transform: rotate(360deg);
+        -webkit-transform-origin: center center;
+        -ms-transform-origin: center center;
+        transform-origin: center center;
+    }
+}
